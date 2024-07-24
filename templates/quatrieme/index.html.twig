@@ -1,39 +1,38 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quatrieme</title>
 
-{% block title %}Entity index{% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+</head>
+<body>
+<div class="container">
 
-{% block body %}
-    <h1>Entity index</h1>
+    <h1><i class="fas fa-lightbulb"></i> Devinez le Mot !</h1>
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Hauteur</th>
-                <th>Largeur</th>
-                <th>Aiguiser</th>
-                <th>Lime</th>
-                <th>Poli</th>
-                <th>NomProprietaire</th>
-                <th>Show</th>
-                <th>edit</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for croc in crocs %}
-            <tr>
-                <td>{{ croc.hauteur }}</td>
-                <td>{{ croc.largeur }}</td>
-                <td>{{ croc.aiguiser ? 'Yes' : 'No' }}</td>
-                <td>{{ croc.lime ? 'Yes' : 'No' }}</td>
-                <td>{{ croc.poli ? 'Yes' : 'No' }}</td>
-                <td>{{ croc.NomProprietaire }}</td>
-                <td><a href="{{ path('app_quatrieme_show', {'id': croc.id}) }}">show</a></td>
-                <td><a href="{{ path('app_quatrieme_edit', {'id': croc.id}) }}">edit</a></td>
-            </tr>
+    <!-- Conteneur des indices -->
+    <div class="indices-container">
+        {% for applaudissement in applaudissement %}
+            <div class="indice">
+                <i class="fas fa-tag"></i><strong>Type :</strong> {{ applaudissement.type }}<br>
+                <i class="fas fa-tachometer-alt"></i><strong>Intensité :</strong> {{ applaudissement.intensite }}<br>
+                <i class="fas fa-comment"></i><strong>Commentaire :</strong> {{ applaudissement.commentaire }}<br>
+            </div>
+        {% else %}
+            <div class="indice">Aucun applaudissement trouvé.</div>
         {% endfor %}
+    </div>
 
-        </tbody>
+</div>
 
-    </table>
-    <h6>Accès en édition et en lecture seulement</h6>
-{% endblock %}
+<!-- Carte du formulaire en bas -->
+<div class="form-card">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Envoyer</button>
+    {{ form_end(form) }}
+</div>
+
+</body>
+</html>
