@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Troisième mot{% endblock %}
+
+{% block body %}
+    <h1>Créer le troisième mot</h1>
+
+    {{ include('troisieme/_form.html.twig') }}
+
+    <a href="{{ path('troisieme_show') }}">Retour à la liste</a>
+{% endblock %}
