@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container mt-5 ">
+		<div class="row text-center">
+			{% for object in objects %}
+				<div class="col-md-4">
+					<div class="card mt-3">
+						<div class="card-header">
+							<h1>{{ object.name }}</h1>
+						</div>
+						<div class="card-body">
+							<p>{{ object.longueur }}</p>
+                            <p>{{ object.matiere }}</p>
+                            <p>{{ object.projectileType }}</p>
+
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

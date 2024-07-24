@@ -1,0 +1,69 @@
+body{
+    background:#ffffff;
+}
+
+header{
+    background: #7532f9;
+}
+
+footer{
+    background: #f8f9fa;
+    height: 50px;
+    
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+  list-style: none;
+}
+
+.custom-link{
+    color: inherit; 
+    text-decoration: none;
+}
+
+.btn{
+    background: #a5a58d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.alert {
+    margin-top: 20px;
+}
+
+.delete-btn {
+    border: none;
+    display: flex;
+    height: 30px;
+    width: 30px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-large {
+    font-size: 2rem; /* Taille par défaut */
+}
+
+@media (min-width: 768px) { /* Tablettes */
+    .icon-large {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 992px) { /* Ordinateurs de bureau */
+    .icon-large {
+        font-size: 3rem;
+    }
+}

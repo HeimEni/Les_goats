@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme sarbacaneForm 'bootstrap_5_layout.html.twig' %}
+
+{% block title %}Hello FormController!{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="card mt-3">
+					<div class="card-header">
+						<h1>Add your object</h1>
+					</div>
+					<div class="card-body">
+						{{ form_start(sarbacaneForm) }}
+						{{ form_rest(sarbacaneForm) }}
+						<div class="d-flex justify-content-center">
+							<button type="submit" class="btn btn-primary mt-3">Valider</button>
+						</div>
+						{{ form_end(sarbacaneForm, { 'render_rest': false }) }}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
