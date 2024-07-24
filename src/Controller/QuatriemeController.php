@@ -17,6 +17,8 @@ class QuatriemeController extends AbstractController
     #[Route('/', name: 'app_quatrieme_index', methods: ['GET'])]
     public function index(CrocRepository $crocRepository): Response
     {
+        setcookie('Mot-à-trouver', "On l'utilise pour bosser dans les champs");
+
         return $this->render('quatrieme/index.html.twig', [
             'crocs' => $crocRepository->findAll(),
         ]);
