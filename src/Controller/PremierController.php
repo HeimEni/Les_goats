@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Applaudissement;
-use App\Form\QuatriemeFormType;
+use App\Form\PremierFormType;
 
 use App\Repository\ApplaudissementRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -12,10 +12,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class QuatriemeController extends AbstractController
+class PremierController extends AbstractController
 {
 
-    #[Route('/quatrieme', name: 'app_quatrieme')]
+    #[Route('/premier', name: 'app_premier')]
     public function index(Request $request, EntityManagerInterface $entityManager, ApplaudissementRepository $repository): Response
     {
 
@@ -23,7 +23,7 @@ class QuatriemeController extends AbstractController
 
         $applaudissements = $repository->findAll();
 
-        $form = $this->createForm(QuatriemeFormType::class, $applaudissement);
+        $form = $this->createForm(PremierFormType::class, $applaudissement);
 
         $form->handleRequest($request);
 
@@ -34,12 +34,12 @@ class QuatriemeController extends AbstractController
             $entityManager->flush();
 
 
-            return $this->redirectToRoute('app_quatrieme');
+            return $this->redirectToRoute('app_premier');
         }
 
 
-        return $this->render('quatrieme/index.html.twig', [
-            'controller_name' => 'QuatriemeController',
+        return $this->render('premier/index.html.twig', [
+            'controller_name' => 'PremierController',
             'form' => $form->createView(),
             'applaudissement' => $applaudissements
         ]);
