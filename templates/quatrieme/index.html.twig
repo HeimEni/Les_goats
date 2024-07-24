@@ -14,7 +14,8 @@
                 <th>Lime</th>
                 <th>Poli</th>
                 <th>NomProprietaire</th>
-                <th>actions</th>
+                <th>Show</th>
+                <th>edit</th>
             </tr>
         </thead>
         <tbody>
@@ -26,16 +27,8 @@
                 <td>{{ croc.lime ? 'Yes' : 'No' }}</td>
                 <td>{{ croc.poli ? 'Yes' : 'No' }}</td>
                 <td>{{ croc.NomProprietaire }}</td>
-                <td>
-                    <a href="{{ path('app_quatrieme_show', {'id': croc.id}) }}">show</a>
-                    <a href="{{ path('app_quatrieme_edit', {'id': croc.id}) }}">edit</a>
-                </td>
-
-            </tr>
-
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
+                <td><a href="{{ path('app_quatrieme_show', {'id': croc.id}) }}">show</a></td>
+                <td><a href="{{ path('app_quatrieme_edit', {'id': croc.id}) }}">edit</a></td>
             </tr>
         {% endfor %}
 
