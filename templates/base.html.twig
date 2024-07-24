@@ -13,18 +13,69 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
+    <style>
+        .cat{
+            width: 150px;
+            z-index: 1000;
+            position: relative;
+            transform: rotate(-15deg);
+            margin-left: 100px;
+        }
+        .animate {
+            animation: rotating 0.2s linear infinite;
+            width: 200px;
+        }
+        .animate2 {
+            animation: 3s ease-in 1s 2 reverse both paused slidein;        width: 200px;
+        }
+        .fire {
+            animation: fire 0.2s infinite;
+        }
+
+        @keyframes fire {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        @keyframes slidein {
+            from { transform: scaleX(0); }
+            to   { transform: scaleX(1); }
+        }
+        @keyframes rotating {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-10deg);
+            }
+        }
+
+    </style>
     <body>
+
     <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">
+
+        <img src="{{  asset("cat.png") }}" class="cat"
+             alt="">
+        <img src="{{  asset("ak.png") }}" class="animate"
+             style="width: 160px;margin-top: 50px;margin-left: -70px" alt="">
+        <img src="{{  asset("fire2.png") }}" class="fire"
+             style="margin-left:-10px; width: 50px; transform: rotate(90deg)"     alt="">
         <a href="{{ path("app_quatrieme_index") }}">
             <span class="navbar-brand mb-0 h1">Entity 1</span>
         </a>
+            </span>
         <a href="{{ path("second") }}">
             <span class="navbar-brand mb-0 h1">Entity 2</span>
         </a>
         <a href="{{ path("troisieme") }}">
             <span class="navbar-brand mb-0 h1">Entity 3</span>
         </a>
-        <a href="{{ path("app_main") }}">
+        <a href="{{ path("app_quatrieme_index") }}">
             <span class="navbar-brand mb-0 h1">Entity 4</span>
         </a>
         <a href="{{ path("app_cinquieme") }}">
