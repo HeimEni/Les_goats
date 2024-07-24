@@ -3,6 +3,10 @@
 {% block body %}
 	<div class="container mt-5 ">
 		<div class="row text-center">
+			<a href="{{  path("app_form") }}">
+				<img src="{{ asset("plus.png") }}" alt=""/>
+
+			</a>
 			{% for object in objects %}
 				<div class="col-md-4">
 					<div class="card mt-3">

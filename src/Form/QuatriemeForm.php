@@ -4,11 +4,10 @@ namespace App\Form;
 
 use App\Entity\Croc;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CrocType extends AbstractType
+class QuatriemeForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
