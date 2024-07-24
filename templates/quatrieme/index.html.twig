@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entity index{% endblock %}
+
+{% block body %}
+    <h1>Entity index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Hauteur</th>
+                <th>Largeur</th>
+                <th>Aiguiser</th>
+                <th>Lime</th>
+                <th>Poli</th>
+                <th>NomProprietaire</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for croc in crocs %}
+            <tr>
+                <td>{{ croc.id }}</td>
+                <td>{{ croc.hauteur }}</td>
+                <td>{{ croc.largeur }}</td>
+                <td>{{ croc.aiguiser ? 'Yes' : 'No' }}</td>
+                <td>{{ croc.lime ? 'Yes' : 'No' }}</td>
+                <td>{{ croc.poli ? 'Yes' : 'No' }}</td>
+                <td>{{ croc.NomProprietaire }}</td>
+                <td>
+                    <a href="{{ path('app_quatrieme_show', {'id': croc.id}) }}">show</a>
+                    <a href="{{ path('app_quatrieme_edit', {'id': croc.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_quatrieme_new') }}">Create new</a>
+{% endblock %}
