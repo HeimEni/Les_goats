@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste du troisième{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Liste du troisieme</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Pointure</th>
+                <th scope="col">Couleur</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for troisieme in troisiemes %}
+                <tr>
+                    <td>{{ troisieme.id }}</td>
+                    <td>{{ troisieme.pointure }}</td>
+                    <td>{{ troisieme.couleur }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
