@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Sarbacane;
-use App\Form\SarbacaneType;
+use App\Form\CinquiemeForm;
 use App\Repository\SarbacaneRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,7 +17,7 @@ class CinquiemeController extends AbstractController
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         $sarbacane = new Sarbacane();
-        $sarbacaneForm = $this->createForm(SarbacaneType::class, $sarbacane);
+        $sarbacaneForm = $this->createForm(CinquiemeForm::class, $sarbacane);
 
         $sarbacaneForm->handleRequest($request);
 

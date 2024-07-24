@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Croc;
-use App\Form\CrocType;
+use App\Form\QuatriemeForm;
 use App\Repository\CrocRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,7 +33,7 @@ class QuatriemeController extends AbstractController
     #[Route('/{id}/edit', name: 'app_quatrieme_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Croc $croc, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(CrocType::class, $croc);
+        $form = $this->createForm(QuatriemeForm::class, $croc);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
