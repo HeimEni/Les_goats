@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class FormController extends AbstractController
 {
-    #[Route('/form', name: 'app_form')]
+    #[Route('cinquieme/form', name: 'app_form')]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         $sarbacane = new Sarbacane();
@@ -29,7 +29,7 @@ class FormController extends AbstractController
             $sarbacane->setProjectileType($randomType);
             $entityManager->persist($sarbacane);
             $entityManager->flush();
-            return $this->redirectToRoute('main/home.html.twig');
+            return $this->redirectToRoute('app_main');
         }
         return $this->render('form/index.html.twig', [
             'sarbacaneForm' => $sarbacaneForm->createView(),

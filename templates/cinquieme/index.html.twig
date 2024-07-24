@@ -1,20 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CinquiemeController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<div class="container mt-5 ">
+		<div class="row text-center">
+			{% for object in objects %}
+				<div class="col-md-4">
+					<div class="card mt-3">
+						<div class="card-header">
+							<h1>{{ object.name }}</h1>
+						</div>
+						<div class="card-body">
+							<p>{{ object.longueur }}</p>
+                            <p>{{ object.matiere }}</p>
+                            <p>{{ object.projectileType }}</p>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/tdelon2023/Documents/workspace/Les_goats/src/Controller/CinquiemeController.php</code></li>
-        <li>Your template at <code>C:/Users/tdelon2023/Documents/workspace/Les_goats/templates/cinquieme/index.html.twig</code></li>
-    </ul>
-</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 {% endblock %}
