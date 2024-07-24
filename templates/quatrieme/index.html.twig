@@ -5,10 +5,9 @@
 {% block body %}
     <h1>Entity index</h1>
 
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Hauteur</th>
                 <th>Largeur</th>
                 <th>Aiguiser</th>
@@ -21,7 +20,6 @@
         <tbody>
         {% for croc in crocs %}
             <tr>
-                <td>{{ croc.id }}</td>
                 <td>{{ croc.hauteur }}</td>
                 <td>{{ croc.largeur }}</td>
                 <td>{{ croc.aiguiser ? 'Yes' : 'No' }}</td>

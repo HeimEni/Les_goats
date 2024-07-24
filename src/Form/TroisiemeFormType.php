@@ -23,6 +23,9 @@ class TroisiemeFormType extends AbstractType {
             'couleur',
             TextType::class,
             [
+                'attr' => [
+                    'placeholder' => "La boulangerie"
+                ],
                 'label' => 'Couleur du produit',
             ]
         );
