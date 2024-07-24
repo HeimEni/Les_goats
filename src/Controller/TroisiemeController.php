@@ -29,7 +29,7 @@ class TroisiemeController extends AbstractController {
             $botte = $form->getData();
             $this->entityManager->persist($botte);
             $this->entityManager->flush();
-            return $this->redirectToRoute('troisieme');
+            return $this->redirectToRoute('troisieme_show');
         }
 
         return $this->render('troisieme/create.html.twig', [
