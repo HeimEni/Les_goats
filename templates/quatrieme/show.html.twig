@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Quatrième{% endblock %}
-{% form_theme form 'bootstrap_5_layout.html.twig' %}
 
 {% block body %}
     <h1>Entity</h1>
@@ -43,5 +42,4 @@
 
     <a href="{{ path('app_quatrieme_edit', {'id': croc.id}) }}">edit</a>
 
-    {{ include('quatrieme/_delete_form.html.twig') }}
 {% endblock %}

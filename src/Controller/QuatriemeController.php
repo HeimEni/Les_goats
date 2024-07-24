@@ -22,26 +22,6 @@ class QuatriemeController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_quatrieme_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $croc = new Croc();
-        $form = $this->createForm(CrocType::class, $croc);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($croc);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_quatrieme_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('quatrieme/new.html.twig', [
-            'croc' => $croc,
-            'form' => $form,
-        ]);
-    }
-
     #[Route('/{id}', name: 'app_quatrieme_show', methods: ['GET'])]
     public function show(Croc $croc): Response
     {
@@ -66,16 +46,5 @@ class QuatriemeController extends AbstractController
             'croc' => $croc,
             'form' => $form,
         ]);
-    }
-
-    #[Route('/{id}', name: 'app_quatrieme_delete', methods: ['POST'])]
-    public function delete(Request $request, Croc $croc, EntityManagerInterface $entityManager): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$croc->getId(), $request->getPayload()->getString('_token'))) {
-            $entityManager->remove($croc);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('app_quatrieme_index', [], Response::HTTP_SEE_OTHER);
     }
 }
