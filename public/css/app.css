@@ -119,7 +119,7 @@ form button:hover {
     background-color: #0033aa;
 }
 
-img {
+.myimage {
     width: 350px;
     height: 350px;
     filter: blur(8px);
