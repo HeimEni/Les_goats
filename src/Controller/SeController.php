@@ -33,7 +33,7 @@ class SeController extends AbstractController
             $cube->setArete($newCube->getArete());
 
             $entityManager->persist($cube);
-            $entityManager->flush($cube);
+            $entityManager->flush();
 
             return $this->redirectToRoute('second');
         }
