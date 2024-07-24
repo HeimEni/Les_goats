@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quatrième{% endblock %}
+
+{% block body %}
+    <h1>Entity</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ croc.id }}</td>
+            </tr>
+            <tr>
+                <th>Hauteur</th>
+                <td>{{ croc.hauteur }}</td>
+            </tr>
+            <tr>
+                <th>Largeur</th>
+                <td>{{ croc.largeur }}</td>
+            </tr>
+            <tr>
+                <th>Aiguiser</th>
+                <td>{{ croc.aiguiser ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Lime</th>
+                <td>{{ croc.lime ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Poli</th>
+                <td>{{ croc.poli ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>NomProprietaire</th>
+                <td>{{ croc.NomProprietaire }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_quatrieme_index') }}">back to list</a>
+
+    <a href="{{ path('app_quatrieme_edit', {'id': croc.id}) }}">edit</a>
+
+{% endblock %}

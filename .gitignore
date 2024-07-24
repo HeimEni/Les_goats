@@ -25,5 +25,5 @@
 ###< symfony/asset-mapper ###
 
 ###> IDE ###
-/.idea
+.idea
 ###< IDE ###
