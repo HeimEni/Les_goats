@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SeController!{% endblock %}
+
+{% block body %}
+<h1>Entity</h1>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <p>{{ entity.arete }}</p>
+    <label>Volume</label>
+    <p>{{ entity.arete * entity.arete * entity.arete }}</p>
+    <label>Aire</label>
+    <p>{{ entity.arete * entity.arete * entity.NUMBER_OF_FACES  }}</p>
+    <label>Nombre de faces</label>
+    <p> {{ entity.NUMBER_OF_FACES }}</p>
+    <input type="submit" value="Re-calcul">
+    {{ form_end(form) }}
+{% endblock %}
