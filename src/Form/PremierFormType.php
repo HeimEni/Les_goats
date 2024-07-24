@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Applaudissement;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,7 @@ class PremierFormType extends AbstractType
     {
         $builder
             ->add('type')
-            ->add('intensite')
+            ->add('intensite', IntegerType::class)
             ->add('commentaire')
         ;
     }

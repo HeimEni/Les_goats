@@ -42,7 +42,7 @@ h1:hover {
 .indices-container {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espacement entre les applaudissements */
+    gap: 20px;
 }
 
 .indice {

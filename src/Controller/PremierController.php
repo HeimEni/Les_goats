@@ -33,43 +33,12 @@ class PremierController extends AbstractController
             $entityManager->persist($applaudissement);
             $entityManager->flush();
 
-
             return $this->redirectToRoute('app_premier');
         }
 
 
         return $this->render('premier/index.html.twig', [
             'controller_name' => 'PremierController',
-            'form' => $form->createView(),
-            'applaudissement' => $applaudissements
-        ]);
-    }
-
-    #[Route('/quatrieme', name: 'app_quatrieme_e')]
-    public function index2(\http\Client\Request $request, EntityManagerInterface $entityManager, ApplaudissementRepository $repository): Response
-    {
-
-        $applaudissement = new Applaudissement();
-
-        $applaudissements = $repository->findAll();
-
-        $form = $this->createForm(PremierFormType::class, $applaudissement);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-
-            $entityManager->persist($applaudissement);
-            $entityManager->flush();
-
-
-            return $this->redirectToRoute('app_quatrieme_e');
-        }
-
-
-        return $this->render('quatrieme/index.html.twig', [
-            'controller_name' => 'QuatriemeController',
             'form' => $form->createView(),
             'applaudissement' => $applaudissements
         ]);

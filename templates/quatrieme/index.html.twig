@@ -1,38 +1,48 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Quatrieme</title>
+{% extends 'base.html.twig' %}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-</head>
-<body>
-<div class="container">
+{% block title %}Entity index{% endblock %}
 
-    <h1><i class="fas fa-lightbulb"></i> Devinez le Mot !</h1>
+{% block body %}
+    <h1>Entity index</h1>
 
-    <!-- Conteneur des indices -->
-    <div class="indices-container">
-        {% for applaudissement in applaudissement %}
-            <div class="indice">
-                <i class="fas fa-tag"></i><strong>Type :</strong> {{ applaudissement.type }}<br>
-                <i class="fas fa-tachometer-alt"></i><strong>Intensité :</strong> {{ applaudissement.intensite }}<br>
-                <i class="fas fa-comment"></i><strong>Commentaire :</strong> {{ applaudissement.commentaire }}<br>
-            </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Hauteur</th>
+            <th>Largeur</th>
+            <th>Aiguiser</th>
+            <th>Lime</th>
+            <th>Poli</th>
+            <th>NomProprietaire</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for croc in crocs %}
+            <tr>
+                <td>{{ croc.id }}</td>
+                <td>{{ croc.hauteur }}</td>
+                <td>{{ croc.largeur }}</td>
+                <td>{{ croc.aiguiser ? 'Yes' : 'No' }}</td>
+                <td>{{ croc.lime ? 'Yes' : 'No' }}</td>
+                <td>{{ croc.poli ? 'Yes' : 'No' }}</td>
+                <td>{{ croc.NomProprietaire }}</td>
+                <td>
+                    <a href="{{ path('app_quatrieme_show', {'id': croc.id}) }}">show</a>
+                    <a href="{{ path('app_quatrieme_edit', {'id': croc.id}) }}">edit</a>
+                </td>
+
+            </tr>
+
         {% else %}
-            <div class="indice">Aucun applaudissement trouvé.</div>
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
         {% endfor %}
-    </div>
 
-</div>
+        </tbody>
 
-<!-- Carte du formulaire en bas -->
-<div class="form-card">
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit">Envoyer</button>
-    {{ form_end(form) }}
-</div>
-
-</body>
-</html>
+    </table>
+    <h6>Accès en édition et en lecture seulement</h6>
+{% endblock %}
