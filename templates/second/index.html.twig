@@ -3,8 +3,8 @@
 {% block title %}Hello SeController!{% endblock %}
 
 {% block body %}
+<h1>Entity</h1>
     {% if entity %}
-        <h1>Entity</h1>
         {{ form_start(form) }}
         {{ form_widget(form) }}
         <label>Volume</label>
@@ -16,7 +16,10 @@
         <input type="submit" value="Re-calcul">
         {{ form_end(form) }}
     {% else %}
-        <h4>Pas de données en base</h4>
+    <h2>Pas de données!</h2>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Créer">
+        {{ form_end(form) }}
     {% endif %}
-
 {% endblock %}

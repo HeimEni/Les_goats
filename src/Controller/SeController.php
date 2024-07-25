@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Cube;
 use App\Form\SecondFormType;
 use App\Repository\CubeRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,17 +25,23 @@ class SeController extends AbstractController
     #[Route('/second', name: 'second')]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $cube = $this->cubeRepository->find(1);
+        $cubes = $this->cubeRepository->findAll();
+        $cube = null;
+        if($cubes != null){
+            $cube = $cubes[0];
+        }
         $form = $this->createForm(SecondFormType::class, $cube);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $newCube = $form->getData();
-            $cube->setArete($newCube->getArete());
-
-            $entityManager->persist($cube);
+            if($cube == null){
+                $entityManager->persist($newCube);
+            }else{
+                $cube->setArete($newCube->getArete());
+                $entityManager->persist($cube);
+            }
             $entityManager->flush();
-
             return $this->redirectToRoute('second');
         }
 
